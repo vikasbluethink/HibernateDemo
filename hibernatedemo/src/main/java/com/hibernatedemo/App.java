@@ -1,0 +1,51 @@
+package com.hibernatedemo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        
+        Question q1 = new Question();
+        q1.setQ_id(1);
+        q1.setQuestion("What is java?");
+        
+        Answer a1 = new Answer();
+        a1.setA_id(1);
+        a1.setAnswer("Java is a programming language.");
+        a1.setQuestion(q1);
+
+        Answer a2 = new Answer();
+        a2.setA_id(2);
+        a2.setAnswer("We create sofwares by using java.");
+        a2.setQuestion(q1);
+        
+        List<Answer> answerList = new ArrayList<Answer>();
+        answerList.add(a1);
+        answerList.add(a2);
+        
+        q1.setAnswer(answerList);
+        
+        session.save(q1);
+        session.save(a1);
+        session.save(a2);
+        
+        transaction.commit();
+        
+        session.close();
+        
+    }
+}

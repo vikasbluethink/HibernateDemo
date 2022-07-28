@@ -1,0 +1,8 @@
+package com.hibernatedemo;
+
+public class Answer {
+	
+	private int a_id;
+	private String answer;
+
+}

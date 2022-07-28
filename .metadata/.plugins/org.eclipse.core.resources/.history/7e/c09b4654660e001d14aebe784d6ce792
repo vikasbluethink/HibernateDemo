@@ -1,0 +1,25 @@
+package com.hibernatedemo;
+
+public class Question {
+	private int q_id;
+	private String question;
+	
+	public int getQ_id() {
+		return q_id;
+	}
+
+	public void setQ_id(int q_id) {
+		this.q_id = q_id;
+	}
+
+	public String getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	public Question() {}
+
+}
